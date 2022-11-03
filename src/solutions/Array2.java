@@ -1,5 +1,7 @@
 package solutions;
 
+import java.util.stream.IntStream;
+
 public class Array2 {
 
     public static void main(String[] args) {
@@ -72,6 +74,80 @@ public class Array2 {
             }
         }
         return false;
+    }
+
+    public static boolean lucky13(int[] nums) {
+        for (int index = 0; index < nums.length; index++) {
+            int currentNumber = nums[index];
+            if(currentNumber == 1 || currentNumber == 3) return false;
+        }
+        return true;
+    }
+
+    public static boolean sum28(int[] nums) {
+        int sum = 0;
+        for (int index = 0; index < nums.length; index++) {
+            int currentNumber = nums[index];
+            if(currentNumber == 2) {
+                sum += 2;
+                if(sum > 8) return false;
+            }
+        }
+        return sum == 8;
+    }
+
+    public static boolean more14(int[] nums) {
+        int countOne = 0, countFour = 0;
+        for (int index = 0; index < nums.length; index++) {
+            int currentNumber = nums[index];
+            if(currentNumber == 1)
+                countOne++;
+            else if(currentNumber == 4)
+                countFour++;
+        }
+        return countOne > countFour;
+    }
+
+    public static int[] fizzArray(int n) {
+        int [] result = new int[n];
+        for (int index = 0; index < n; index++) {
+            result[index] = index;
+        }
+        return result;
+    }
+
+    public static boolean only14(int[] nums) {
+        for (int index = 0; index < nums.length; index++) {
+            if(nums[index] != 1 && nums[index] != 4) return false;
+        }
+        return true;
+    }
+
+    public static String[] fizzArray2(int n) {
+        String [] result = new String[n];
+        for (int index = 0; index < n; index++) {
+            result[index] = String.valueOf(index);
+        }
+        return result;
+    }
+
+    public boolean no14(int[] nums) {
+        boolean hasOne = false, hasFour = false;
+        for (int index = 0; index < nums.length; index++) {
+            if(nums[index] == 1) hasOne = true;
+            if(nums[index] == 4) hasFour = true;
+            if(hasOne && hasFour) return false;
+        }
+        return true;
+    }
+
+    public static boolean isEverywhere(int[] nums, int val) {
+        for (int index = 0; index < nums.length - 1; index++) {
+            int currentNumber = nums[index];
+            int nextNumber = nums[index + 1];
+            if(currentNumber != val && nextNumber != val) return false;
+        }
+        return true;
     }
 
 
